@@ -4,10 +4,6 @@ const getBillings = async ({filters, pagination}) => {
 
 
 
-module.exports = async (req, res)=>{
-    let filters = req.query.filter
-    if(filters){
-        filters = JSON.parse(filters)
-    }
-
+module.exports = options => async (req, res)=>{
+    res.send("hello world")
 }
