@@ -1,5 +1,8 @@
 const create = database => async (userdata, bill) => {
-    console.log("my bill not modified", bill)
+
+    if(!Object.keys(bill).length){
+        throw { reason: 1, message: "Invalid Payload"}
+    }
     bill.created_at = new Date()
     bill.expiration_date = new Date()
     bill.updated_at = new Date()
@@ -10,12 +13,13 @@ const create = database => async (userdata, bill) => {
     bill.total_amount = 0
     if(bill.details && Array.isArray(bill.details)) {
         bill.details.forEach(detail=>{
-            bill,amount += detail.amount
+            bill.amount += detail.amount
             bill.tax += detail.tax
             detail.total_amount = detail.amount + detail.tax
         })
     }
-    console.log("my previous bill", bill)
+    bill.total_amount = bill.amount + bill.tax
+
     return database.collection("invoice").insertOne(bill)
 
 }

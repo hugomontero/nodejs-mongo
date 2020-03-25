@@ -5,6 +5,8 @@ const mongoConnection = require("./config/mongoConnection")
 const app = express()
 
 app.use(bodyParser.urlencoded({extended: false}));
+app.use(bodyParser.json())
+
 require("./config/routesFactory")(app, {databaseConnection:mongoConnection, log:{}})
 
 app.listen(3000, ()=>{
