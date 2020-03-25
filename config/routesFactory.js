@@ -5,7 +5,9 @@ module.exports = async (server, {databaseConnection, log}) => {
         databaseConnection,
         log
     }
+    await databaseConnection._connect()
     let routesWithOptions = routes(options)
+
     let routeKeys = Object.keys(routesWithOptions)
     console.log("initializing routings...")
     routeKeys.forEach(rk => {
