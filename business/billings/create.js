@@ -1,3 +1,4 @@
+const COLLECTION = "invoice"
 const create = database => async (userdata, bill) => {
 
     if(!Object.keys(bill).length){
@@ -20,7 +21,7 @@ const create = database => async (userdata, bill) => {
     }
     bill.total_amount = bill.amount + bill.tax
 
-    return database.collection("invoice").insertOne(bill)
+    return database.collection(COLLECTION).insertOne(bill)
 
 }
 
