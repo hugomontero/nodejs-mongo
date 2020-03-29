@@ -9,7 +9,7 @@ module.exports = options => {
     "/": require("../events/billing/create")(options),
    },
    delete: {
-    "/": require("../events/billing/delete")(options),
+    ":id": require("../events/billing/delete")(options),
    },
   },
  }
