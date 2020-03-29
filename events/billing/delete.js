@@ -1,9 +1,10 @@
-const getBillings = async ({filters, pagination}) => {
-    return {data:[]}
+const getBillings = async ({ filters, pagination }) => {
+ return { data: [] }
 }
 
-
-
-module.exports = options => async (req, res)=>{
-    res.send("hello world")
+/*
+  void a billing
+*/
+module.exports = options => async (req, res) => {
+ res.send("hello world")
 }
